@@ -1,0 +1,414 @@
+**DR. JOY KONG**
+
+*Inbound Campaign — Project Synthesis*
+
+Chara Health  |  Market Better  |  Pilot Client
+
+Prepared: July 2026
+
+**CONFIDENTIAL — INTERNAL USE ONLY**
+
+**1. CLIENT OVERVIEW**
+
+**Client: **Dr. Joy Kong, MD — 'The Stem Cell Queen'
+
+**Agency relationship: **Pilot client — Market Better Inbound Launch Program
+
+**Clinic: **Chara Health, 9568 Topanga Canyon Blvd, Los Angeles, CA 91311
+
+**Websites: **joykongmd.com  |  chara-health.com
+
+**Credentials**
+
+- Triple board-certified physician
+
+- Recognized global leader in regenerative and longevity medicine
+
+- UCLA-trained
+
+**Products (3 Lines)**
+
+**1.  ****Chara Health Clinic **— primary revenue driver; focus of this campaign
+
+**2.  ****Skincare Cream **— secondary product line
+
+**3.  ****Medical Training Academy **— for practitioners
+
+**Brand Voice**
+
+- Credible, calm, evidence-based, confident
+
+- Never hypey or sensationalist
+
+- Clinical-adjacent but accessible — lower the entry cost, not the standard
+
+- Dr. Joy likes bold, clickbait-style titles and thumbnail copy
+
+**Client Working Style**
+
+- Prefers minimal meetings
+
+- Brief, casual email communication — no formal phrasing
+
+- Approval-only creative involvement — not a heavy collaborator
+
+- Came on board after being reassured this would be a light lift — manage effort expectations carefully
+
+**2. TARGET AUDIENCE**
+
+**Primary Avatar**
+
+**Age: **45–65+
+
+**Income: **Upper-middle to high
+
+**Geography: **US-based; heavy LA concentration
+
+**Gender split: **~51% male, ~46% female (podcast data)
+
+**Psychographic Profile**
+
+- Health-literate, research-driven, proactive about aging and longevity
+
+- Frustrated with conventional medicine; seeking evidence-based alternatives
+
+- Anxious about aging; FOMO about missing a breakthrough treatment
+
+- Willing to invest in what works; preference for personalized care
+
+- Wants answers they can apply immediately — not biographical content
+
+**Core Objections to Address in All Content**
+
+**1.  ****Results: **Does stem cell therapy actually work?
+
+**2.  ****Cost: **Is it worth the investment?
+
+**3.  ****Understanding: **What even is regenerative medicine?
+
+**3. CAMPAIGN GOAL ****&**** STRATEGY**
+
+Dr. Joy has an existing content ecosystem (podcast, YouTube, social) with no lead capture mechanism. The campaign retrofits a full inbound funnel onto her existing infrastructure — converting her warm audience into booked consultations at Chara Health.
+
+**Primary Campaign Goal**
+
+Generate high-intent leads for Chara Health clinic consultations through a lead magnet funnel built in GoHighLevel (GHL).
+
+**What Already Exists**
+
+- Active podcast with proven episode performance data
+
+- YouTube channel (clips and shorts)
+
+- Instagram and Facebook presence
+
+- Clinic websites: joykongmd.com and chara-health.com
+
+**The Gap**
+
+All content creates authority and awareness but has no capture mechanism. Every listener who finishes an episode leaves without a next step. This campaign closes that loop.
+
+**4. LEAD MAGNET — SELECTED**
+
+**SELECTED: ****Stem Cell Clinic Evaluation Checklist**
+
+Targeting warm, high-intent prospects who are actively evaluating whether to pursue stem cell therapy. This audience is pre-qualifying themselves as clinic prospects by seeking this information.
+
+**Checklist Contents (12 Questions)**
+
+- Is the clinic using FDA-regulated products?
+
+- What credentials does the administering physician hold?
+
+- Are treatment protocols individualized or one-size-fits-all?
+
+- + 9 additional evaluative questions (to be finalized with Dr. Joy)
+
+**Format**
+
+- PDF download — delivered via automated GHL email on opt-in
+
+- Future consideration: Video-format version (Dr. Joy's suggestion); Vidyard flagged as potential tool
+
+**Other Options Evaluated (Not Selected)**
+
+**A.  ****Stem Cell Therapy Starter Guide **— highest conversion intent; selected equivalent
+
+**B.  ****Regenerative Medicine Roadmap **— broader TOF; lower conversion intent
+
+**C.  ****Biological Age Assessment (Quiz) **— Phase 2 play; high build effort
+
+**D.  ****Anti-Aging Peptide Protocol **— strong podcast demand but may attract non-clinic-ready audience
+
+**5. LANDING PAGE**
+
+**Technical Setup**
+
+**Platform: **GoHighLevel (GHL)
+
+**URL: **free.joykongmd.com (subdomain to be configured)
+
+**Form fields: **First Name + Email
+
+**On submit: **Tag contact in GHL pipeline → route to thank-you page with PDF download link → trigger Email 1
+
+**Design Direction**
+
+- Matches joykongmd.com aesthetic: warm cream (#F0EBE0), soft peach/gold accent (#D4A574)
+
+- Fonts: Cormorant Garamond (headings) + Jost (body) — matching her existing site
+
+- Sharp minimal border radius — angular, not wellness-rounded
+
+- Two-column desktop layout: hero content left, sticky form card right
+
+- Collapses to single-column on mobile
+
+**Page Elements**
+
+- Eyebrow: 'Free checklist for serious candidates'
+
+- Headline: 'Is Stem Cell Therapy Right for You?'
+
+- Credential bar: Certification / Specialty / Clinic
+
+- 3 numbered benefits addressing the core objections
+
+- Dr. Joy photo + byline (JK initials placeholder — approved photo to be swapped in)
+
+- Form card: eyebrow, display headline, checklist preview, two fields, CTA button
+
+- Trust line: 'No spam. Unsubscribe anytime.'
+
+- Medical disclaimer footer (copy is final — do not alter)
+
+**Copy Principles**
+
+- Centers on the prospect's decision-making process — not promotional language
+
+- Builds trust with a high-intent medical audience before any ask
+
+- No hype language anywhere on the page
+
+- CTA: 'Send me the checklist'
+
+**6. EMAIL NURTURE SEQUENCE**
+
+Four-email post-opt-in flow. Draft deadline: midweek. Approval target: end of week.
+
+| **Email** | **Timing** | **Purpose ****&**** Content** | **CTA** |
+| --- | --- | --- | --- |
+| **Email 1** | Immediate | Welcome + asset delivery. Deliver the checklist PDF. Brief intro to Dr. Joy. Set expectations for upcoming emails. | Download the checklist |
+| **Email 2** | Day 2-3 | How to use it. Goes deeper on the checklist topic. Links to a relevant blog post. No ask. | Read the blog post |
+| **Email 3** | Day 5-6 | Insights + tips. One key insight, one patient outcome (appropriately framed). Links to top YouTube video. Builds desire without selling. | Watch the video |
+| **Email 4** | Day 8-10 | Soft sell + CTA. Introduce Chara Health naturally. 'If you've been wondering whether this is right for you...' Single clear CTA only. | Book a consultation |
+
+**Post-Sequence Logic**
+
+**If CTA is clicked (Email 4):**
+
+- GHL flags contact as sales lead
+
+- Contact enters GHL sales pipeline; team alert fires
+
+- Personal outreach initiated within 24-48 hours
+
+**If CTA is not clicked:**
+
+- Contact moves to long-term nurture: weekly or monthly newsletter
+
+- Content repurposed from podcast and YouTube keeps Dr. Joy top of mind
+
+- Any link click in newsletter re-enters contact into a 2-email re-engagement sequence
+
+- Non-responders remain on newsletter indefinitely — they are not lost, they are warming
+
+**7. GOHIGHLEVEL (GHL) BUILD STRATEGY**
+
+**Build Order**
+
+**1.  ****Build in agency GHL account first **— creates a reusable template for future clients
+
+**2.  ****Replicate into Dr. Joy****'****s existing GHL account **— Joseph is assessing integration between accounts
+
+**Key Stakeholders**
+
+**Anna: **Agency lead — campaign strategy, copy, client management
+
+**Joseph: **Agency technical resource — GHL audits, builds, platform configuration
+
+**Dr. Joy Kong: **Client — approval only; minimal involvement preferred
+
+**GHL Configuration Checklist**
+
+- Landing page built on subdomain: free.joykongmd.com
+
+- Opt-in form: first_name + email fields
+
+- Contact tagged on opt-in entry
+
+- Thank-you page configured with checklist PDF download link
+
+- Email 1 automation trigger on opt-in
+
+- Pipeline naming convention confirmed with Joseph
+
+- Sales lead flag + team alert configured for Email 4 CTA click
+
+- Long-term newsletter sequence configured post-nurture
+
+- Re-engagement 2-email sequence triggered on any newsletter link click
+
+**8. EXISTING CONTENT ECOSYSTEM**
+
+Dr. Joy has an established multi-channel content operation. Campaign CTAs will be placed across all channels once the landing page is live.
+
+**Platform Output Per Episode**
+
+**1.  ****Long-form podcast (Spotify/Apple) **— 1 per episode, weekly
+
+**2.  ****YouTube Clips **— 1-2 per episode, max 15 min each
+
+**3.  ****Shorts (vertical social) **— 4 per episode across YouTube and Instagram
+
+**Top Performing Content (Podcast Data)**
+
+- 'These Are the Top Peptides You Need to Know About' — 120 listeners (+173%)
+
+- 'Top Doctors on How to Supercharge Every Cell in Your Body' — 83 listeners (+108%)
+
+- 'Why Stem Cell Therapy Is the Ultimate Anti-Aging Weapon' — 84 listeners (+47%)
+
+**Winning Content Signals**
+
+- Peptides and anti-aging are #1 performing topics by a wide margin
+
+- 'Top X you need to know' framing consistently outperforms
+
+- Clear, benefit-forward, tactical, outcome-driven content wins
+
+- Personal journey episodes without actionable content underperform
+
+**CTA Placement Plan (Post Launch)**
+
+- YouTube video descriptions — add lead magnet link
+
+- Podcast show notes (Spotify and Apple) — add lead magnet link
+
+- Instagram bio — update Linktree to include lead magnet
+
+- Website homepage — add banner or sticky header bar pointing to landing page
+
+**Active Social Platforms**
+
+- YouTube / Rumble
+
+- Instagram
+
+- Facebook (paused for social copy production, clinic presence active)
+
+- LinkedIn, TikTok, Parler — paused
+
+**9. OPEN ITEMS ****&**** NEXT STEPS**
+
+**Immediate Priorities**
+
+**1.  ****Draft all 4 nurture emails **— midweek draft deadline
+
+**2.  ****Send drafts to Dr. Joy for approval **— target: end of week
+
+**3.  ****Get checklist asset approved by Dr. Joy **— end of week
+
+**4.  ****Joseph: assess GHL account integration **— agency account to Dr. Joy's account
+
+**Pending from Dr. Joy****'****s Team**
+
+- GHL admin access or sub-account login
+
+- Domain registrar / DNS access for free.joykongmd.com subdomain
+
+- Brand asset folder: logo (SVG/PNG), hex codes, fonts, approved photography of Dr. Joy
+
+- Approved patient testimonials for marketing use
+
+- Top 2-3 YouTube videos for use in Email 3
+
+- Existing blog posts for use in Email 2 (or confirm blog needs to be written)
+
+- Medical disclaimer language confirmation
+
+- Opt-in language approval (CAN-SPAM / TCPA compliance)
+
+**On the Horizon**
+
+- Replicate finalized campaign build into Dr. Joy's GHL account
+
+- CTA placement across podcast show notes, YouTube descriptions, Instagram bio, website
+
+- Video-format lead magnet — flagged as future consideration (Dr. Joy's suggestion); Vidyard noted as potential tool
+
+- Phase 2: Biological Age Assessment quiz once infrastructure is proven
+
+**Key Decisions Already Locked**
+
+- **Primary goal: Clinic leads (not list-building first)**
+
+- **Lead magnet: Stem Cell Clinic Evaluation Checklist**
+
+- **Platform: GoHighLevel**
+
+- **Build order: Agency template first, then replicate to Dr. Joy****'****s account**
+
+**10. ACCESS ****&**** ASSET CHECKLIST**
+
+**GoHighLevel**
+
+- [ ] GHL admin access or sub-account login
+
+- [ ] Confirm existing contacts and tags (avoid overwriting data)
+
+- [ ] Pipeline naming convention confirmed
+
+- [ ] GHL domain/subdomain connection confirmed
+
+**Website ****&**** Domain**
+
+- [ ] Domain registrar login or DNS access
+
+- [ ] Website host login (joykongmd.com and/or chara-health.com)
+
+- [ ] Website platform confirmed (WordPress, Squarespace, Wix, or custom)
+
+- [ ] Access to add homepage banner or CTA
+
+**Brand Assets**
+
+- [ ] Logo files (SVG or PNG, transparent background)
+
+- [ ] Brand hex color codes (primary + secondary palette)
+
+- [ ] Brand fonts
+
+- [ ] Approved photography of Dr. Joy (for landing page)
+
+- [ ] Patient testimonials approved for marketing use
+
+**Content Assets**
+
+- [ ] Top 3-5 YouTube videos for Email 3
+
+- [ ] Existing blog posts for Email 2 (or confirm blog needs writing)
+
+- [ ] Any existing PDF/guide assets Dr. Joy has produced
+
+**Legal ****&**** Compliance**
+
+- [ ] Medical disclaimer language confirmed and approved
+
+- [ ] Opt-in language approved (CAN-SPAM / TCPA)
+
+- [ ] Patient outcome language reviewed (cannot imply guaranteed results)
+
+- [ ] Dr. Joy or team sign-off on email copy before loading into GHL
+
+Market Better  |  Confidential — Internal Use Only  |  July 2026
