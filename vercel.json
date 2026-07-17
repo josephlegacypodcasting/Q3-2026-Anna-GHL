@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/references/DrJoyKong_LandingPage.html" }
+  ]
+}
