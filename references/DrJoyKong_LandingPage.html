@@ -599,9 +599,19 @@
               <p class="field-error" id="first-name-error">Please enter your first name.</p>
             </div>
             <div class="form-row">
+              <label class="form-label" for="last-name">Last name</label>
+              <input class="form-input" type="text" id="last-name" name="last_name" placeholder="Your last name" autocomplete="family-name" />
+              <p class="field-error" id="last-name-error">Please enter your last name.</p>
+            </div>
+            <div class="form-row">
               <label class="form-label" for="email">Email address</label>
               <input class="form-input" type="email" id="email" name="email" placeholder="you@email.com" autocomplete="email" />
               <p class="field-error" id="email-error">Please enter a valid email address.</p>
+            </div>
+            <div class="form-row">
+              <label class="form-label" for="phone">Phone number <span style="text-transform:none; letter-spacing:0.02em; color: var(--ink-faint);">(optional)</span></label>
+              <input class="form-input" type="tel" id="phone" name="phone" placeholder="(555) 123-4567" autocomplete="tel" />
+              <p class="field-error" id="phone-error">Please enter a valid phone number.</p>
             </div>
 
             <button class="cta-btn" type="submit" id="optin-submit">
@@ -650,36 +660,51 @@
 
       var form = document.getElementById('optin-form');
       var firstNameInput = document.getElementById('first-name');
+      var lastNameInput = document.getElementById('last-name');
       var emailInput = document.getElementById('email');
+      var phoneInput = document.getElementById('phone');
       var submitBtn = document.getElementById('optin-submit');
       var errorBox = document.getElementById('optin-error');
       var successBox = document.getElementById('optin-success');
       var submitting = false;
 
       var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+      // Optional field: validated only when filled — 7-15 digits, common separators allowed
+      var PHONE_RE = /^\+?[\d\s().-]{7,20}$/;
 
       function setFieldError(input, hasError) {
         input.classList.toggle('invalid', hasError);
         document.getElementById(input.id + '-error').classList.toggle('visible', hasError);
       }
 
-      function validate() {
-        var firstNameOk = firstNameInput.value.trim().length > 0;
-        var emailOk = EMAIL_RE.test(emailInput.value.trim());
-        setFieldError(firstNameInput, !firstNameOk);
-        setFieldError(emailInput, !emailOk);
-        return firstNameOk && emailOk;
+      function phoneDigits(value) {
+        return value.replace(/\D/g, '');
       }
 
-      firstNameInput.addEventListener('input', function () { setFieldError(firstNameInput, false); });
-      emailInput.addEventListener('input', function () { setFieldError(emailInput, false); });
+      function validate() {
+        var firstNameOk = firstNameInput.value.trim().length > 0;
+        var lastNameOk = lastNameInput.value.trim().length > 0;
+        var emailOk = EMAIL_RE.test(emailInput.value.trim());
+        var phoneValue = phoneInput.value.trim();
+        var phoneOk = phoneValue === '' ||
+          (PHONE_RE.test(phoneValue) && phoneDigits(phoneValue).length >= 7 && phoneDigits(phoneValue).length <= 15);
+        setFieldError(firstNameInput, !firstNameOk);
+        setFieldError(lastNameInput, !lastNameOk);
+        setFieldError(emailInput, !emailOk);
+        setFieldError(phoneInput, !phoneOk);
+        return firstNameOk && lastNameOk && emailOk && phoneOk;
+      }
+
+      [firstNameInput, lastNameInput, emailInput, phoneInput].forEach(function (input) {
+        input.addEventListener('input', function () { setFieldError(input, false); });
+      });
 
       function buildPayload() {
         return {
           first_name: firstNameInput.value.trim(),
-          last_name: '',
+          last_name: lastNameInput.value.trim(),
           email: emailInput.value.trim(),
-          phone: '',
+          phone: phoneInput.value.trim(),
           lead_source: 'Podcast',
           source_channel: 'Podcast',
           campaign_name: 'Dr. Joy - Stem Cell Clinic Checklist',
