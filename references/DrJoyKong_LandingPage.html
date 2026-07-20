@@ -351,6 +351,83 @@
     .cta-btn:hover { background: #c09060; }
     .cta-btn:active { transform: scale(0.99); }
 
+    .cta-btn:disabled {
+      background: var(--peach-light);
+      cursor: default;
+      transform: none;
+    }
+
+    .field-error {
+      display: none;
+      font-size: 11px;
+      font-weight: 400;
+      color: #a44a33;
+      margin-top: 5px;
+      line-height: 1.4;
+    }
+
+    .field-error.visible { display: block; }
+
+    .form-input.invalid { border-color: #a44a33; }
+
+    .consent-note {
+      font-size: 10.5px;
+      font-weight: 300;
+      color: var(--ink-muted);
+      line-height: 1.6;
+      margin-top: 0.85rem;
+      text-align: center;
+    }
+
+    .form-status-error {
+      display: none;
+      font-size: 12px;
+      font-weight: 400;
+      color: #a44a33;
+      line-height: 1.55;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .form-status-error.visible { display: block; }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 1.5rem 0 0.75rem;
+    }
+
+    .form-success.visible { display: block; }
+
+    .form-success-icon {
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      border: 1px solid var(--peach);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .form-success-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--peach);
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .form-success-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
     .trust-line {
       display: flex;
       align-items: center;
@@ -515,24 +592,39 @@
           <h2 class="form-title">Make an informed decision before your consultation.</h2>
           <p class="form-subtitle">Enter your name and email. We'll send it to your inbox — no sales call, no obligation.</p>
 
-          <div class="form-row">
-            <label class="form-label" for="first-name">First name</label>
-            <input class="form-input" type="text" id="first-name" name="first_name" placeholder="Your first name" autocomplete="given-name" />
-          </div>
-          <div class="form-row">
-            <label class="form-label" for="email">Email address</label>
-            <input class="form-input" type="email" id="email" name="email" placeholder="you@email.com" autocomplete="email" />
-          </div>
+          <form id="optin-form" novalidate>
+            <div class="form-row">
+              <label class="form-label" for="first-name">First name</label>
+              <input class="form-input" type="text" id="first-name" name="first_name" placeholder="Your first name" autocomplete="given-name" />
+              <p class="field-error" id="first-name-error">Please enter your first name.</p>
+            </div>
+            <div class="form-row">
+              <label class="form-label" for="email">Email address</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="you@email.com" autocomplete="email" />
+              <p class="field-error" id="email-error">Please enter a valid email address.</p>
+            </div>
 
-          <button class="cta-btn" type="submit">
-            Send me the checklist
-            &rarr;
-          </button>
+            <button class="cta-btn" type="submit" id="optin-submit">
+              Send me the checklist
+              &rarr;
+            </button>
 
-          <p class="trust-line">
-            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            No spam. Unsubscribe anytime.
-          </p>
+            <p class="consent-note">By submitting, you agree to receive email communication related to this resource from Chara Health.</p>
+
+            <p class="form-status-error" id="optin-error">Something went wrong. Please try again in a moment.</p>
+
+            <p class="trust-line">
+              <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              No spam. Unsubscribe anytime.
+            </p>
+          </form>
+
+          <div class="form-success" id="optin-success" role="status">
+            <div class="form-success-icon">
+              <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <p class="form-success-text">Thank you! Please check your inbox for the Stem Cell Clinic Evaluation Checklist.</p>
+          </div>
         </div>
 
         <p class="disclaimer">
@@ -548,6 +640,108 @@
     </footer>
 
   </div>
+
+  <script>
+    (function () {
+      var WEBHOOKS = [
+        { name: 'client', url: 'https://services.leadconnectorhq.com/hooks/sLswS1156H9CA8w8Pzmc/webhook-trigger/af06b7d8-8a9e-49dd-aeaa-c4b5f2458227' },
+        { name: 'agency', url: 'https://services.leadconnectorhq.com/hooks/uE8iQeezklYV7hJanEiE/webhook-trigger/2fa7d278-f1b9-4ea1-8224-035cad7e0b87' }
+      ];
+
+      var form = document.getElementById('optin-form');
+      var firstNameInput = document.getElementById('first-name');
+      var emailInput = document.getElementById('email');
+      var submitBtn = document.getElementById('optin-submit');
+      var errorBox = document.getElementById('optin-error');
+      var successBox = document.getElementById('optin-success');
+      var submitting = false;
+
+      var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+      function setFieldError(input, hasError) {
+        input.classList.toggle('invalid', hasError);
+        document.getElementById(input.id + '-error').classList.toggle('visible', hasError);
+      }
+
+      function validate() {
+        var firstNameOk = firstNameInput.value.trim().length > 0;
+        var emailOk = EMAIL_RE.test(emailInput.value.trim());
+        setFieldError(firstNameInput, !firstNameOk);
+        setFieldError(emailInput, !emailOk);
+        return firstNameOk && emailOk;
+      }
+
+      firstNameInput.addEventListener('input', function () { setFieldError(firstNameInput, false); });
+      emailInput.addEventListener('input', function () { setFieldError(emailInput, false); });
+
+      function buildPayload() {
+        return {
+          first_name: firstNameInput.value.trim(),
+          last_name: '',
+          email: emailInput.value.trim(),
+          phone: '',
+          lead_source: 'Podcast',
+          source_channel: 'Podcast',
+          campaign_name: 'Dr. Joy - Stem Cell Clinic Checklist',
+          lead_magnet: 'The Stem Cell Clinic Evaluation Checklist',
+          landing_page_url: 'https://q3-2026-anna-ghl.vercel.app',
+          form_name: 'MBIS - DJ - Stem Cell Clinic Checklist Opt-In',
+          client_name: 'Dr. Joy Kong / Chara Health',
+          system_name: 'Market Better Inbound System',
+          system_id: 'MBIS',
+          consent: true,
+          consent_type: 'Email opt-in',
+          submitted_at: new Date().toISOString()
+        };
+      }
+
+      function postWebhook(webhook, body) {
+        return fetch(webhook.url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: body
+        }).then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return webhook.name;
+        });
+      }
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (submitting) return;
+        if (!validate()) return;
+
+        submitting = true;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+        errorBox.classList.remove('visible');
+
+        var body = JSON.stringify(buildPayload());
+
+        Promise.allSettled(WEBHOOKS.map(function (w) { return postWebhook(w, body); }))
+          .then(function (results) {
+            var anySuccess = false;
+            results.forEach(function (result, i) {
+              if (result.status === 'fulfilled') {
+                anySuccess = true;
+              } else {
+                console.error('[opt-in] ' + WEBHOOKS[i].name + ' webhook failed:', result.reason);
+              }
+            });
+
+            if (anySuccess) {
+              form.style.display = 'none';
+              successBox.classList.add('visible');
+            } else {
+              errorBox.classList.add('visible');
+              submitting = false;
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = 'Send me the checklist &rarr;';
+            }
+          });
+      });
+    })();
+  </script>
 
 </body>
 </html>
