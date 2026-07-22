@@ -505,7 +505,7 @@
       <p class="cta-eyebrow">Ready to talk it through?</p>
       <h2 class="cta-title">Book a consultation with Dr. Joy.</h2>
       <p class="cta-sub">Bring your questions — every one of them. Choose a time that works for you and talk through your specific situation directly.</p>
-      <a class="cta-btn" href="https://link.firstclassalliance.com/widget/booking/XDma62ooXnIZggANgqZ9" target="_blank" rel="noopener">
+      <a class="cta-btn" id="book-consultation-btn" href="https://link.firstclassalliance.com/widget/booking/XDma62ooXnIZggANgqZ9" target="_blank" rel="noopener">
         Book my consultation
         &rarr;
       </a>
@@ -526,6 +526,48 @@
     </footer>
 
   </div>
+
+  <script>
+    (function () {
+      var CONSULT_WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/sLswS1156H9CA8w8Pzmc/webhook-trigger/8df0de85-0e1b-4bd0-ab74-e932c821c95e';
+      var btn = document.getElementById('book-consultation-btn');
+
+      function buildPayload() {
+        return {
+          event: 'consultation_intent',
+          lead_source: 'Podcast',
+          source_channel: 'Podcast',
+          campaign_name: 'Dr. Joy - Stem Cell Clinic Checklist',
+          lead_magnet: 'The Stem Cell Clinic Evaluation Checklist',
+          landing_page_url: window.location.href,
+          form_name: 'MBIS - DJ - Stem Cell Clinic Checklist CTA',
+          client_name: 'Dr. Joy Kong / Chara Health',
+          system_name: 'Market Better Inbound System',
+          system_id: 'MBIS',
+          submitted_at: new Date().toISOString()
+        };
+      }
+
+      btn.addEventListener('click', function (event) {
+        event.preventDefault();
+        var bookingUrl = btn.href;
+        var body = JSON.stringify(buildPayload());
+
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon(CONSULT_WEBHOOK_URL, new Blob([body], { type: 'application/json' }));
+        } else {
+          fetch(CONSULT_WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: body,
+            keepalive: true
+          }).catch(function (err) { console.error('[checklist] consultation webhook failed:', err); });
+        }
+
+        window.open(bookingUrl, '_blank', 'noopener');
+      });
+    })();
+  </script>
 
 </body>
 </html>
