@@ -1,5 +1,9 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/references/DrJoyKong_LandingPage.html" }
+    { "source": "/", "destination": "/references/DrJoyKong_LandingPage.html" },
+    { "source": "/checklist", "destination": "/references/checklist.html" },
+    { "source": "/checklist.html", "destination": "/references/checklist.html" },
+    { "source": "/Joy-Kong-Md-Signature.png", "destination": "/references/Joy-Kong-Md-Signature.png" },
+    { "source": "/StemCellClinicEvaluationChecklist.pdf", "destination": "/references/StemCellClinicEvaluationChecklist.pdf" }
   ]
 }

@@ -757,6 +757,8 @@
             if (anySuccess) {
               form.style.display = 'none';
               successBox.classList.add('visible');
+              // Funnel step 2: checklist page with booking CTA
+              setTimeout(function () { window.location.href = 'checklist.html'; }, 1500);
             } else {
               errorBox.classList.add('visible');
               submitting = false;
