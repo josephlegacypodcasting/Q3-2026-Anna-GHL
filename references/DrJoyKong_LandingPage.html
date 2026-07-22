@@ -755,6 +755,8 @@
             });
 
             if (anySuccess) {
+              sessionStorage.setItem('mbis_first_name', firstNameInput.value.trim());
+              sessionStorage.setItem('mbis_email', emailInput.value.trim());
               form.style.display = 'none';
               successBox.classList.add('visible');
               // Funnel step 2: checklist page with booking CTA

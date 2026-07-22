@@ -505,10 +505,10 @@
       <p class="cta-eyebrow">Ready to talk it through?</p>
       <h2 class="cta-title">Book a consultation with Dr. Joy.</h2>
       <p class="cta-sub">Bring your questions — every one of them. Choose a time that works for you and talk through your specific situation directly.</p>
-      <a class="cta-btn" id="book-consultation-btn" href="https://link.firstclassalliance.com/widget/booking/XDma62ooXnIZggANgqZ9" target="_blank" rel="noopener">
+      <button class="cta-btn" id="book-consultation-btn" type="button">
         Book my consultation
         &rarr;
-      </a>
+      </button>
       <p class="cta-contact">
         Call <a href="tel:+18183568232">(818) 356-8232</a> or email <a href="mailto:info@chara-health.com">info@chara-health.com</a><br>
         9568 Topanga Canyon Blvd, Los Angeles, CA 91311<br>
@@ -530,42 +530,52 @@
   <script>
     (function () {
       var CONSULT_WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/sLswS1156H9CA8w8Pzmc/webhook-trigger/d547d18b-b74c-4589-8a49-32e9a0cf8c1a';
-      var btn = document.getElementById('book-consultation-btn');
+      var CALENDAR_URL = 'https://link.firstclassalliance.com/widget/booking/XDma62ooXnIZggANgqZ9';
 
-      function buildPayload() {
-        return {
-          event: 'consultation_intent',
+      async function handleBookConsultationClick(event) {
+        if (event) event.preventDefault();
+
+        if (window.__mbisConsultationSubmitting) return;
+        window.__mbisConsultationSubmitting = true;
+
+        var button = event && event.currentTarget;
+        if (button) {
+          button.textContent = 'Opening Calendar...';
+          button.disabled = true;
+        }
+
+        var payload = {
+          event_type: 'consultation_intent_submitted',
+          first_name: sessionStorage.getItem('mbis_first_name') || '',
+          email: sessionStorage.getItem('mbis_email') || '',
           lead_source: 'Podcast',
           source_channel: 'Podcast',
           campaign_name: 'Dr. Joy - Stem Cell Clinic Checklist',
           lead_magnet: 'The Stem Cell Clinic Evaluation Checklist',
-          landing_page_url: window.location.href,
-          form_name: 'MBIS - DJ - Stem Cell Clinic Checklist CTA',
-          client_name: 'Dr. Joy Kong / Chara Health',
+          source_page: window.location.href,
+          cta_name: 'Book a Consultation with Dr. Joy',
+          cta_destination: CALENDAR_URL,
           system_name: 'Market Better Inbound System',
           system_id: 'MBIS',
           submitted_at: new Date().toISOString()
         };
-      }
 
-      btn.addEventListener('click', function (event) {
-        event.preventDefault();
-        var bookingUrl = btn.href;
-        var body = JSON.stringify(buildPayload());
-
-        if (navigator.sendBeacon) {
-          navigator.sendBeacon(CONSULT_WEBHOOK_URL, new Blob([body], { type: 'application/json' }));
-        } else {
-          fetch(CONSULT_WEBHOOK_URL, {
+        try {
+          var response = await fetch(CONSULT_WEBHOOK_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: body,
-            keepalive: true
-          }).catch(function (err) { console.error('[checklist] consultation webhook failed:', err); });
+            body: JSON.stringify(payload)
+          });
+          console.log('GHL consultation intent webhook status:', response.status);
+        } catch (error) {
+          console.error('GHL consultation intent webhook failed:', error);
+        } finally {
+          window.location.href = CALENDAR_URL;
         }
+      }
 
-        window.open(bookingUrl, '_blank', 'noopener');
-      });
+      var btn = document.getElementById('book-consultation-btn');
+      if (btn) btn.addEventListener('click', handleBookConsultationClick);
     })();
   </script>
 
